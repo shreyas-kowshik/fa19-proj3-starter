@@ -12,11 +12,11 @@ SB(0x63) : ALUOp 10
 Rest     : ALUOp 11 (Default only Add)
 
         MemRW   RegWEn  MemtoReg    AluSrc  Branch  AluOp0  AluOp1
-R(0x33) 0       1       0           0       0       0       0
-I(0x03) 1       1       1           1       0       1       0
-I(0x13) 0       1       0           1       0       1       0
-I(0x67) 0       1       0           1       0       1       0
-S(0x23) 1       0       0           1       0       1       1
-SB(0x63)0       0       0           1       1       0       1
-U(0x37) 0       0       0           1       1       1       1
-UJ(0x6f)0       0       0           1       1       1       1
+R(0x33) 0       1       0           0       0       0       0 O1 0 0 0
+I(0x03) 1       1       1           1       0       1       0 O2 0 0 1
+I(0x13) 0       1       0           1       0       1       0 O3 0 1 0
+    I(0x67) 0       1       0           1       0       1       0 O3 0 1 0
+S(0x23) 1       0       0           1       0       1       1 O4 0 1 1
+SB(0x63)0       0       0           1       1       0       1 O5 1 0 0
+U(0x37) 0       0       0           1       1       1       1 O6 1 0 1
+UJ(0x6f)0       0       0           1       1       1       1 O7 1 1 0
