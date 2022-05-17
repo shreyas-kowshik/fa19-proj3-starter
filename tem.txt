@@ -1,0 +1,22 @@
+Control Signals :
+AluSel 4 bits. Make a circuit AluControl that will take the instruction and set these bits. Control will just generate one AluOp
+MemRW
+RegWEn
+MemtoReg decides if register will hold value from ALU computation or memory (ALU:0, Memory:1)
+AluSrc decides if second input to ALU is from register value or immediate
+Branch decides if instruction is a branch instruction. This value with AND with if ALU result is zero decides if branch to take
+
+R (0x33) : ALUOp 00
+I (0x13) : ALUOp 01
+SB(0x63) : ALUOp 10
+Rest     : ALUOp 11 (Default only Add)
+
+        MemRW   RegWEn  MemtoReg    AluSrc  Branch  AluOp0  AluOp1
+R(0x33) 0       1       0           0       0       0       0
+I(0x03) 1       1       1           1       0       1       0
+I(0x13) 0       1       0           1       0       1       0
+I(0x67) 0       1       0           1       0       1       0
+S(0x23) 1       0       0           1       0       1       1
+SB(0x63)0       0       0           1       1       0       1
+U(0x37) 0       0       0           1       1       1       1
+UJ(0x6f)0       0       0           1       1       1       1
